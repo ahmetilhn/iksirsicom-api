@@ -1,16 +1,9 @@
-import express, { Request, Response } from "express";
+import express, { Application } from "express";
+import serverConstant from "./constants/server.constant";
+const app: Application = express();
 
-const app = express();
+// Listen port
 
-app.get("/", async (req: Request, res: Response) => {
-  console.log("Hello world");
-  res.status(200).json({
-    msg: "İsteğe cevap verildi",
-  });
-});
-
-const port = 8080;
-
-app.listen(port, (): void => {
-  console.log(`App is listening at http://localhost:${port}`);
+app.listen(serverConstant.PORT, (): void => {
+  console.log(serverConstant.PORT + serverConstant.MSG);
 });
