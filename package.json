@@ -1,0 +1,23 @@
+{
+  "name": "iksirsicom-api",
+  "version": "1.0.0",
+  "main": "./dist/server.js",
+  "repository": "https://github.com/ahmetilhan24/iksirsicom-api.git",
+  "author": "Ahmet ilhan <ailhan@hepsiemlak.com>",
+  "scripts": {
+    "build": "npx tsc",
+    "start": "node ./dist/app.js",
+    "dist": "tsc -p .",
+    "dev": "nodemon ./src/server.ts"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "typescript": "^4.7.4"
+  },
+  "dependencies": {
+    "express": "^4.18.1",
+    "nodemon": "^2.0.19",
+    "ts-node": "^10.9.1"
+  }
+}
