@@ -1,10 +1,25 @@
 import express, { Application } from "express";
 import serverConstant from "./constants/server.constant";
 import envConfig from "./config/env.config";
+
+import Routes from "./routes";
 const app: Application = express();
 
 // Listen port
 
-app.listen(envConfig.API_PORT, () => {
-  console.log(envConfig.API_PORT + serverConstant.MSG);
-});
+class Server {
+  constructor() {
+    this.initServer();
+  }
+  initRouter() {
+    new Routes(app);
+  }
+  initServer() {
+    this.initRouter();
+    app.listen(envConfig.API_PORT, () => {
+      console.log(envConfig.API_PORT + serverConstant.MSG);
+    });
+  }
+}
+
+new Server();
