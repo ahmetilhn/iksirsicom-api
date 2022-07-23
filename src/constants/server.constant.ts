@@ -1,4 +1,6 @@
+import envConfig from "../config/env.config";
+
 export default {
-  PORT: 8000,
-  MSG: " Portu dinleniyor"
+  PORT: envConfig.API_PORT,
+  MSG: " Portu dinleniyor",
 };
