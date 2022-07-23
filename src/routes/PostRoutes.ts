@@ -8,6 +8,7 @@ class PostRoutes {
   }
   intializeRoutes() {
     this.router.route("/").get(PostControllers.getAllPosts);
+    this.router.route("/").post(PostControllers.createPost)
   }
 }
 

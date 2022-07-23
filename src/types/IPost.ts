@@ -2,7 +2,7 @@ import { Document } from "mongoose";
 import IAuthor from "./IAuthor";
 import ILike from "./ILike";
 import IView from "./IView";
-interface IPost extends Document {
+export interface IPost extends Document {
   title: string;
   description: string;
   poster?: string;
@@ -12,6 +12,6 @@ interface IPost extends Document {
   info: {
     view?: IView;
     like?: ILike;
-    author: IAuthor;
+    author?: IAuthor;
   };
 }

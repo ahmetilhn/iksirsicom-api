@@ -7,6 +7,10 @@ class PostControllers {
       msg: "Tüm postlar çekildi",
     });
   }
+  public async createPost(req: Request, res: Response, next: NextFunction) {
+    const postData = req.body;
+    console.log(postData);
+  }
 }
 
 export default new PostControllers();
