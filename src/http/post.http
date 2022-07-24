@@ -6,7 +6,7 @@ POST http://localhost:8000/posts
 Content-Type: application/json
 
 {
-    "postData": {
+
       "title": "4 Passive Income Streams for a Programmer",
         "description": "Learn how to generate passive income as a programmer. — Everybody wants to earn extra money but due to time constraints and jobs, we can not give extra time to earn extra money. Think about that you are sleeping an",
  "poster": "https://miro.medium.com/max/1400/1*5PItdRKtHIk3G70ab-Zz3g.jpeg",
@@ -20,5 +20,5 @@ Content-Type: application/json
   "avatar": "https://miro.medium.com/fit/c/176/176/1*0T8vOIKgXfo7NXq1YqN4Iw.jpeg"
     }
   }
-}
+
 }

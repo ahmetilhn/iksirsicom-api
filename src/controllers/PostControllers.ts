@@ -1,4 +1,5 @@
 import { NextFunction, Request, Response } from "express";
+import PostService from "../services/PostService";
 
 class PostControllers {
   constructor() {}
@@ -8,8 +9,16 @@ class PostControllers {
     });
   }
   public async createPost(req: Request, res: Response, next: NextFunction) {
-    const postData = req.body;
-    console.log(postData);
+    const newPost = await PostService.create(req, res, next);
+    if (newPost) {
+      res.status(201).json({
+        msg: "Kayıt başarılı",
+      });
+    } else {
+      res.status(500).json({
+        msg: "Kayıt başarısız",
+      });
+    }
   }
 }
 
