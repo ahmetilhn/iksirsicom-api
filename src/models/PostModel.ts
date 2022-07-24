@@ -1,3 +1,4 @@
+import { Request } from "express";
 import { model, Schema } from "mongoose";
 import { IPost } from "../types/IPost";
 
@@ -42,8 +43,16 @@ class PostModel {
     ],
   });
   public Model = model<IPost>("Post", this.postSchema);
-  public async save(postData: IPost) {
+  public async create(postData: IPost) {
     return new this.Model(postData).save();
+  }
+  public async read(req: Request) {
+    if (req.params.id) {
+      return this.Model.findOne({ _id: req.params.id });
+    }
+    else {
+      return this.Model.find();
+    }
   }
 }
 export default new PostModel();
