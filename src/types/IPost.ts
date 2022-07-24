@@ -10,8 +10,8 @@ export interface IPost extends Document {
   tags?: Array<string>;
   reading_time?: number | string;
   info: {
-    view?: IView;
-    like?: ILike;
+    view?: IView[];
+    like?: ILike[];
     author: IAuthor;
   };
 }
