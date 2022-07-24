@@ -3,10 +3,10 @@ export default class BaseService {
   constructor(public Model) {}
 
   public async create(req: Request, res: Response, next: NextFunction) {
-    return await this.Model.create(req.body);
+    return this.Model.create(req.body);
   }
   public async read(req: Request, res: Response, next: NextFunction) {
-    return await this.Model.read(req);
+    return this.Model.read(req);
   }
   async delete(id: string) {
     return this.Model.delete(id);

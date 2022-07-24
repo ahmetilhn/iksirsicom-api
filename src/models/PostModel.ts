@@ -48,15 +48,13 @@ class PostModel {
   }
   public async read(req: Request) {
     if (req.params.id) {
-      const doc = await this.Model.findById(req.params.id).exec();
-      return doc;
+      return this.Model.findById(req.params.id).exec();
     } else {
       return this.Model.find();
     }
   }
   public async delete(id: string) {
-    const doc = await this.Model.findByIdAndDelete(id);
-    if (doc) return doc;
+    return this.Model.findByIdAndDelete(id);
   }
 }
 export default new PostModel();
