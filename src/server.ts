@@ -1,4 +1,6 @@
 import express, { Application } from "express";
+import cors from "cors";
+import corsConfig from "./config/cors.config";
 import serverConstant from "./constants/server.constant";
 import envConfig from "./config/env.config";
 
@@ -19,6 +21,7 @@ class Server {
   }
   initConfig() {
     app.use(express.json({ limit: "100mb" }));
+    app.use(cors(corsConfig));
   }
   initRouter() {
     new Routes(app);
