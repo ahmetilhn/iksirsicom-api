@@ -1,4 +1,3 @@
-import { NextFunction, Request, Response } from "express";
 import PostModel from "../models/PostModel";
 import BaseService from "./BaseService";
 

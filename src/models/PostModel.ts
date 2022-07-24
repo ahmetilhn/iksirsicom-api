@@ -1,7 +1,7 @@
 import { model, Schema } from "mongoose";
 import { IPost } from "../types/IPost";
 
-export default class PostModel {
+class PostModel {
   public postSchema = new Schema<IPost>({
     title: {
       type: String,
@@ -42,7 +42,8 @@ export default class PostModel {
     ],
   });
   public Model = model<IPost>("Post", this.postSchema);
-  public save(postData: IPost) {
-    new this.Model(postData).save();
+  public async save(postData: IPost) {
+    return new this.Model(postData).save();
   }
 }
+export default new PostModel();
