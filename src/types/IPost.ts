@@ -7,11 +7,11 @@ export interface IPost extends Document {
   description: string;
   poster?: string;
   content: string;
-  tags: string[];
+  tags?: Array<string>;
   reading_time?: number | string;
   info: {
     view?: IView;
     like?: ILike;
-    author?: IAuthor;
+    author: IAuthor;
   };
 }
