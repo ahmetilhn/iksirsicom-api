@@ -31,7 +31,6 @@ class PostControllers {
       },
       res
     );
-    return;
   }
   public async createPost(req: Request, res: Response, next: NextFunction) {
     const newPost = await PostService.create(req, res, next);
@@ -39,6 +38,27 @@ class PostControllers {
       res.status(201).json(newPost);
       return;
     }
+    ErrorHandler.handler(
+      {
+        msg: "Post oluşturulamadı",
+        statusCode: 500,
+      },
+      res
+    );
+  }
+  public async deletePost(req: Request, res: Response, next: NextFunction) {
+    const deleted = await PostService.delete(req.params.id);
+    if (deleted) {
+      res.status(200).json(deleted);
+      return;
+    }
+    ErrorHandler.handler(
+      {
+        msg: "Post silinemedi",
+        statusCode: 500,
+      },
+      res
+    );
   }
 }
 

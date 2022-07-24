@@ -1,5 +1,4 @@
 import { NextFunction, Request, Response } from "express";
-
 export default class BaseService {
   constructor(public Model) {}
 
@@ -8,5 +7,8 @@ export default class BaseService {
   }
   public async read(req: Request, res: Response, next: NextFunction) {
     return await this.Model.read(req);
+  }
+  async delete(id: string) {
+    return this.Model.delete(id);
   }
 }

@@ -54,5 +54,9 @@ class PostModel {
       return this.Model.find();
     }
   }
+  public async delete(id: string) {
+    const doc = await this.Model.findByIdAndDelete(id);
+    if (doc) return doc;
+  }
 }
 export default new PostModel();
