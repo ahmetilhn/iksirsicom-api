@@ -48,9 +48,9 @@ class PostModel {
   }
   public async read(req: Request) {
     if (req.params.id) {
-      return this.Model.findOne({ _id: req.params.id });
-    }
-    else {
+      const doc = await this.Model.findById(req.params.id).exec();
+      return doc;
+    } else {
       return this.Model.find();
     }
   }
