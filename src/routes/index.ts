@@ -1,4 +1,5 @@
 import { Application } from "express";
+import LikeRoutes from "./LikeRoutes";
 import PostRoutes from "./PostRoutes";
 
 export default class Routes {
@@ -7,5 +8,6 @@ export default class Routes {
   }
   intializeRoutes() {
     this.app.use("/posts", PostRoutes);
+    this.app.use("/likes", LikeRoutes);
   }
 }

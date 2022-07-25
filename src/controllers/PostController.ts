@@ -2,7 +2,7 @@ import { NextFunction, Request, Response } from "express";
 import ErrorHandler from "../handlers/ErrorHandler";
 import PostService from "../services/PostService";
 
-class PostControllers {
+class PostController {
   constructor() {}
   public async getPosts(req: Request, res: Response, next: NextFunction) {
     const posts = await PostService.read(req, res, next);
@@ -62,4 +62,4 @@ class PostControllers {
   }
 }
 
-export default new PostControllers();
+export default new PostController();

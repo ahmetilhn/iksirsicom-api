@@ -53,11 +53,15 @@ class PostModel {
   }
   public async read(req: Request) {
     if (req.params.id) {
-      const item: IPost = await this.Model.findById(req.params.id).exec();
+      const item: IPost = await this.Model.findById(req.params.id).lean(true);
       if (item) {
         const likes: ILike[] = await LikeModel.read(req.params.id);
-        console.log(likes.length);
+        return {
+          ...item,
+          info: { author: item.info.author, like: likes.length },
+        };
       }
+      return item;
     } else {
       return this.Model.find();
     }

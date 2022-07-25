@@ -19,6 +19,9 @@ class LikeModel {
   public async create(likeData: ILike) {
     return new this.Model(likeData).save();
   }
+  public async delete(id: string) {
+    return this.Model.findByIdAndDelete(id);
+  }
 }
 
 export default new LikeModel();
