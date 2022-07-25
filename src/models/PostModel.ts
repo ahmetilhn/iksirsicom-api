@@ -1,7 +1,8 @@
 import { Request } from "express";
 import { model, Schema } from "mongoose";
+import ILike from "../types/ILike";
 import { IPost } from "../types/IPost";
-
+import LikeModel from "./LikeModel";
 class PostModel {
   public postSchema = new Schema<IPost>({
     title: {
@@ -52,7 +53,11 @@ class PostModel {
   }
   public async read(req: Request) {
     if (req.params.id) {
-      return this.Model.findById(req.params.id).exec();
+      const item: IPost = await this.Model.findById(req.params.id).exec();
+      if (item) {
+        const likes: ILike[] = await LikeModel.read(req.params.id);
+        console.log(likes.length);
+      }
     } else {
       return this.Model.find();
     }
