@@ -5,11 +5,11 @@ export interface IPost extends Document {
   description: string;
   poster: string;
   content: string;
-  tags: Array<string>;
   reading_time: number | string;
+  tags: Array<string>;
   info: {
-    view: string | number;
-    like: string | number;
+    view?: string | number;
+    like?: string | number;
     author: IAuthor;
   };
 }

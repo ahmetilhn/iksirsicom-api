@@ -14,7 +14,7 @@ class PostModel {
     },
     poster: {
       type: String,
-      required: false,
+      required: true,
     },
     content: {
       type: String,
@@ -22,8 +22,14 @@ class PostModel {
     },
     reading_time: {
       type: Number || String,
-      required: false,
+      required: true,
     },
+    tags: [
+      {
+        type: String,
+        required: true,
+      },
+    ],
     info: {
       view: {
         type: String || Number,
@@ -39,12 +45,6 @@ class PostModel {
         avatar: String,
       },
     },
-    tags: [
-      {
-        type: String,
-        required: false,
-      },
-    ],
   });
   public Model = model<IPost>("Post", this.postSchema);
   public async create(postData: IPost) {
