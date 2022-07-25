@@ -1,5 +1,6 @@
 import { Schema, model } from "mongoose";
 import ILike from "../types/ILike";
+import { getIpAddress } from "../utils/ip-address.util";
 
 class LikeModel {
   public likeSchema = new Schema<ILike>({
@@ -17,7 +18,7 @@ class LikeModel {
     return this.Model.find({ post_id: post_id });
   }
   public async create(likeData: ILike) {
-    return new this.Model(likeData).save();
+    return new this.Model({ ...likeData, ip_address: getIpAddress() }).save();
   }
   public async delete(id: string) {
     return this.Model.findByIdAndDelete(id);
