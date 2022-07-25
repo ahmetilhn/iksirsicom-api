@@ -26,7 +26,7 @@ class PostModel {
     },
     info: {
       view: {
-        type: Object,
+        type: Array,
         required: false,
       },
       like: {
