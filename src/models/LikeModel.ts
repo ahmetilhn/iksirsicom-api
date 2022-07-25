@@ -1,6 +1,7 @@
 import { Schema, model } from "mongoose";
 import ILike from "../types/ILike";
 import { getIpAddress } from "../utils/ip-address.util";
+import PostModel from "./PostModel";
 
 class LikeModel {
   public likeSchema = new Schema<ILike>({
@@ -18,7 +19,13 @@ class LikeModel {
     return this.Model.find({ post_id: post_id });
   }
   public async create(likeData: ILike) {
-    return new this.Model({ ...likeData, ip_address: getIpAddress() }).save();
+    const like = new this.Model({
+      ...likeData,
+      ip_address: getIpAddress(),
+    }).save();
+    if (like) {
+      return PostModel.update(likeData.post_id, { $inc: { "info.like": 1 } });
+    }
   }
   public async delete(id: string) {
     return this.Model.findByIdAndDelete(id);

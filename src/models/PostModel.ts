@@ -1,8 +1,6 @@
 import { Request } from "express";
 import { model, Schema } from "mongoose";
-import ILike from "../types/ILike";
 import { IPost } from "../types/IPost";
-import LikeModel from "./LikeModel";
 class PostModel {
   public postSchema = new Schema<IPost>({
     title: {
@@ -33,11 +31,11 @@ class PostModel {
     ],
     info: {
       view: {
-        type: String || Number,
+        type: Number,
         required: false,
       },
       like: {
-        type: String || Number,
+        type: Number,
         required: false,
       },
       author: {
@@ -51,20 +49,16 @@ class PostModel {
   public async create(postData: IPost) {
     return new this.Model(postData).save();
   }
+  // Remove req add only id
   public async read(req: Request) {
     if (req.params.id) {
-      const item: IPost = await this.Model.findById(req.params.id).lean(true);
-      if (item) {
-        const likes: ILike[] = await LikeModel.read(req.params.id);
-        return {
-          ...item,
-          info: { author: item.info.author, like: likes.length },
-        };
-      }
-      return item;
+      return this.Model.findById(req.params.id).lean(true);
     } else {
-      return this.Model.find();
+      return this.Model.find().lean(true);
     }
+  }
+  public async update(id: string, postData) {
+    return this.Model.findByIdAndUpdate(id, postData, { new: true });
   }
   public async delete(id: string) {
     return this.Model.findByIdAndDelete(id);

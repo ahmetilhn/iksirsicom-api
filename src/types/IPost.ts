@@ -8,8 +8,8 @@ export interface IPost extends Document {
   reading_time: number | string;
   tags: Array<string>;
   info: {
-    view?: string | number;
-    like?: string | number;
+    view?: number;
+    like?: number;
     author: IAuthor;
   };
 }
