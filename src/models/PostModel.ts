@@ -26,14 +26,18 @@ class PostModel {
     },
     info: {
       view: {
-        type: Array,
+        type: String || Number,
         required: false,
       },
       like: {
-        type: Object,
+        type: String || Number,
         required: false,
       },
-      author: { full_name: String, user_name: String, avatar: String },
+      author: {
+        full_name: String,
+        user_name: String,
+        avatar: String,
+      },
     },
     tags: [
       {

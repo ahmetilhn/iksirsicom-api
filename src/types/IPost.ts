@@ -1,7 +1,5 @@
 import { Document } from "mongoose";
 import IAuthor from "./IAuthor";
-import ILike from "./ILike";
-import IView from "./IView";
 export interface IPost extends Document {
   title: string;
   description: string;
@@ -10,8 +8,8 @@ export interface IPost extends Document {
   tags: Array<string>;
   reading_time: number | string;
   info: {
-    view: IView[];
-    like: ILike[];
+    view: string | number;
+    like: string | number;
     author: IAuthor;
   };
 }
