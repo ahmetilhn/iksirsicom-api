@@ -1,5 +1,7 @@
-import { Request } from "express";
 import { model, Schema } from "mongoose";
+import {
+  getReadingTime,
+} from "../plugins/reading-time-calc.plugin";
 import IPost from "../types/IPost";
 class PostModel {
   public postSchema = new Schema<IPost>({
@@ -47,6 +49,7 @@ class PostModel {
   });
   public Model = model<IPost>("Post", this.postSchema);
   public async create(payload: IPost) {
+    payload.reading_time = getReadingTime(payload.description, payload.content);
     return new this.Model(payload).save();
   }
   // Remove req add only id
