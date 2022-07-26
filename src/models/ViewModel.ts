@@ -26,7 +26,6 @@ class ViewModel {
       ...payload,
       ip_address: getIpAddress(),
     }).save();
-    console.log(payload);
     if (view) {
       return PostModel.update(payload.post_id, { $inc: { "info.view": 1 } });
     }
