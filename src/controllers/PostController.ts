@@ -46,6 +46,20 @@ class PostController {
       res
     );
   }
+  public async updatePost(req: Request, res: Response, next: NextFunction) {
+    const updated = await PostService.update(req, res, next);
+    if (updated) {
+      res.status(200).json(updated);
+      return;
+    }
+    ErrorHandler.handler(
+      {
+        msg: "Post güncelenemedi",
+        statusCode: 500,
+      },
+      res
+    );
+  }
   public async deletePost(req: Request, res: Response, next: NextFunction) {
     const deleted = await PostService.delete(req, res, next);
     if (deleted) {
