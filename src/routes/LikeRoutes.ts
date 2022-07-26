@@ -1,7 +1,7 @@
 import { Router } from "express";
 import LikeController from "../controllers/LikeController";
 
-class PostRoutes {
+class LikeRoutes {
   router: Router = Router();
   constructor() {
     this.intializeRoutes();
@@ -11,4 +11,4 @@ class PostRoutes {
   }
 }
 
-export default new PostRoutes().router;
+export default new LikeRoutes().router;
