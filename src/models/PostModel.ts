@@ -46,19 +46,18 @@ class PostModel {
     },
   });
   public Model = model<IPost>("Post", this.postSchema);
-  public async create(postData: IPost) {
-    return new this.Model(postData).save();
+  public async create(payload: IPost) {
+    return new this.Model(payload).save();
   }
   // Remove req add only id
-  public async read(req: Request) {
-    if (req.params.id) {
-      return this.Model.findById(req.params.id).lean(true);
-    } else {
-      return this.Model.find().lean(true);
+  public async read(postId?: string) {
+    if (postId) {
+      return this.Model.findById(postId).lean(true);
     }
+    return this.Model.find().lean(true);
   }
-  public async update(id: string, postData) {
-    return this.Model.findByIdAndUpdate(id, postData, { new: true });
+  public async update(id: string, payload) {
+    return this.Model.findByIdAndUpdate(id, payload, { new: true });
   }
   public async delete(id: string) {
     return this.Model.findByIdAndDelete(id);

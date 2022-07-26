@@ -15,16 +15,19 @@ class LikeModel {
     },
   });
   public Model = model<ILike>("Like", this.likeSchema);
-  public async read(post_id: string) {
-    return this.Model.find({ post_id: post_id });
+  public async read(postId?: string) {
+    if (postId) {
+      return this.Model.find({ post_id: postId }).lean();
+    }
+    return this.Model.find().lean();
   }
-  public async create(likeData: ILike) {
+  public async create(payload: ILike) {
     const like = new this.Model({
-      ...likeData,
+      ...payload,
       ip_address: getIpAddress(),
     }).save();
     if (like) {
-      return PostModel.update(likeData.post_id, { $inc: { "info.like": 1 } });
+      return PostModel.update(payload.post_id, { $inc: { "info.like": 1 } });
     }
   }
   public async delete(id: string) {
