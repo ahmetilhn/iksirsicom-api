@@ -6,7 +6,7 @@ export default class BaseService {
     return this.Model.create(req.body);
   }
   public async read(req: Request, res: Response, next: NextFunction) {
-    return this.Model.read(req.params.id);
+    return this.Model.read(req);
   }
   public async update(req: Request, res: Response, next: NextFunction) {
     return this.Model.update(req.params.id, req.body);

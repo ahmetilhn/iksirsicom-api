@@ -1,7 +1,6 @@
+import { Request } from "express";
 import { model, Schema } from "mongoose";
-import {
-  getReadingTime,
-} from "../plugins/reading-time-calc.plugin";
+import { getReadingTime } from "../plugins/reading-time-calc.plugin";
 import IPost from "../types/IPost";
 class PostModel {
   public postSchema = new Schema<IPost>({
@@ -53,9 +52,11 @@ class PostModel {
     return new this.Model(payload).save();
   }
   // Remove req add only id
-  public async read(postId?: string) {
-    if (postId) {
-      return this.Model.findById(postId).lean(true);
+  public async read(req: Request) {
+    if (req.params.id) {
+      return this.Model.findById(req.params.id).lean(true);
+    } else if (req.query.limit) {
+      return this.Model.find().limit(Number(req.query.limit)).lean(true);
     }
     return this.Model.find().lean(true);
   }
