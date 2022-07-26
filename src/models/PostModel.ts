@@ -1,6 +1,6 @@
 import { Request } from "express";
 import { model, Schema } from "mongoose";
-import { IPost } from "../types/IPost";
+import IPost from "../types/IPost";
 class PostModel {
   public postSchema = new Schema<IPost>({
     title: {
