@@ -3,12 +3,12 @@
   "version": "1.0.0",
   "main": "./dist/server.js",
   "repository": "https://github.com/ahmetilhan24/iksirsicom-api.git",
-  "author": "Ahmet ilhan <ailhan@hepsiemlak.com>",
+  "author": "Ahmet ilhan <ahmetilhan.dev@gmail.com>",
   "scripts": {
-    "build": "npx tsc",
-    "start": "node ./dist/app.js",
     "dist": "tsc -p .",
-    "dev": "nodemon ./src/server.ts"
+    "dev": "NODE_ENV=development nodemon ./src/server.ts",
+    "build": "NODE_ENV=production npx tsc",
+    "start": "NODE_ENV=production node ./dist/app.js"
   },
   "license": "MIT",
   "devDependencies": {
