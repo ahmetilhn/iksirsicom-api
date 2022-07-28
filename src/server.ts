@@ -1,4 +1,9 @@
-import express, { Application } from "express";
+import express, {
+  Application,
+  NextFunction,
+  Request,
+  Response,
+} from "express";
 import cors from "cors";
 import corsConfig from "./config/cors.config";
 import serverConstant from "./constants/server.constant";
@@ -24,6 +29,12 @@ class Server {
     app.use(cors(corsConfig));
   }
   initRouter() {
+    app.get("/", (req: Request, res: Response, next: NextFunction) => {
+      res.status(200).json({
+        msg: "Api init edildi",
+        routes: ["/posts", "/views", "/likes", "/subscription"],
+      });
+    });
     new Routes(app);
   }
   initServer() {
