@@ -1,6 +1,7 @@
 export default {
   SAFA_GAYRET: {
     full_name: "Safa Gayret",
+    user_name: "safa_gayret",
     social_links: {
       medium: "https://safa.medium.com/",
       linkedin: "https://www.linkedin.com/in/safagayret/",
@@ -12,6 +13,7 @@ export default {
   },
   AHMET_ILHAN: {
     full_name: "Ahmet İlhan",
+    user_name: "ahmet_ilhan",
     social_links: {
       medium: "https://safa.medium.com/",
       linkedin: "https://www.linkedin.com/in/safagayret/",

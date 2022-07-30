@@ -26,6 +26,10 @@ class PostModel {
       type: Number || String,
       required: true,
     },
+    medium_link: {
+      type: String,
+      required: false,
+    },
     tags: [
       {
         type: String,

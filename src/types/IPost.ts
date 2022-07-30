@@ -7,6 +7,7 @@ export default interface IPost extends Document {
   poster: string;
   content: IContentElement[];
   reading_time: number | string;
+  medium_link?: string;
   tags: Array<string>;
   info: {
     view?: number;
