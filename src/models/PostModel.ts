@@ -14,12 +14,14 @@ class PostModel {
     },
     poster: {
       type: String,
-      required: true,
+      required: false,
     },
-    content: {
-      type: String,
-      required: true,
-    },
+    content: [
+      {
+        type: Object,
+        required: true,
+      },
+    ],
     reading_time: {
       type: Number || String,
       required: true,
@@ -48,7 +50,7 @@ class PostModel {
   });
   public Model = model<IPost>("Post", this.postSchema);
   public async create(payload: IPost) {
-    payload.reading_time = getReadingTime(payload.description, payload.content);
+    payload.reading_time = getReadingTime(payload.content);
     return new this.Model(payload).save();
   }
   // Remove req add only id
