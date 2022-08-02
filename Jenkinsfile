@@ -1,7 +1,7 @@
 pipeline {
     agent any 
     environment {
-        DOCKERHUB=credentials('docker-cred')
+        DOCKERHUB=credentials('dockerhub')
     }
     stages {
         stage('Build') {
@@ -12,7 +12,7 @@ pipeline {
         }
         stage('Push') {
             steps {
-                sh 'echo -n $DOCKERHUB_PSW | docker login -u $DOCKERHUB_USR --password-stdin'
+                sh 'echo $DOCKERHUB_PSW | docker login -u $DOCKERHUB_USR --password-stdin'
                 sh 'docker push miskin1702/iksirsi:latest'
             }
         }
