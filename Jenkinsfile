@@ -2,6 +2,7 @@ pipeline {
     agent any 
     environment {
         DOCKERHUB=credentials('dockerhub')
+	BUILD_NUMBER=${currentBuild.number}
     }
     stages {
         stage('Build') {
@@ -13,7 +14,7 @@ pipeline {
         stage('Push') {
             steps {
                 sh 'echo $DOCKERHUB_PSW | docker login -u $DOCKERHUB_USR --password-stdin'
-                sh 'docker push miskin1702/iksirsi:latest'
+                sh 'docker push miskin1702/iksirsi:$BUILD_NUMBER'
             }
         }
     }
