@@ -2,7 +2,7 @@ pipeline {
     agent any 
     environment {
         DOCKERHUB=credentials('dockerhub')
-	BUILD_NUMBER=${currentBuild.number}
+	BUILD_NUMBER="${currentBuild.number}"
     }
     stages {
         stage('Build') {
