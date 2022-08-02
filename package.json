@@ -8,7 +8,7 @@
     "dist": "tsc -p .",
     "dev": "NODE_ENV=development nodemon ./src/server.ts",
     "build": "NODE_ENV=production npx tsc",
-    "start": "NODE_ENV=production node ./dist/app.js"
+    "start": "NODE_ENV=production node ./dist/server.js"
   },
   "license": "MIT",
   "devDependencies": {
