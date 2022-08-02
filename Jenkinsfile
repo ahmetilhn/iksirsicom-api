@@ -8,7 +8,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'docker --version'
-                sh 'docker build . -t miskin1702/iksirsi:latest'
+                sh 'docker build . -t miskin1702/iksirsi:$BUILD_NUMBER'
             }
         }
         stage('Push') {
