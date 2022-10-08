@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
-import ErrorHandler from "../handlers/ErrorHandler";
-import ViewService from "../services/ViewService";
+import ErrorHandler from "../handlers/error.handler";
+import ViewService from "../services/view.service";
 
 class ViewController {
   constructor() {}

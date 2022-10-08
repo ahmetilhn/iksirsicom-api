@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
-import ErrorHandler from "../handlers/ErrorHandler";
-import SubscriptionService from "../services/SubscriptionService";
+import ErrorHandler from "../handlers/error.handler";
+import SubscriptionService from "../services/subscription.service";
 
 class SubscriptionController {
   constructor() {}

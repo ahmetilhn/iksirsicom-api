@@ -1,5 +1,5 @@
-import SubscriptionModel from "../models/SubscriptionModel";
-import BaseService from "./BaseService";
+import SubscriptionModel from "../models/subscription.model";
+import BaseService from "./base.service";
 
 class SubscriptionService extends BaseService {
   constructor() {

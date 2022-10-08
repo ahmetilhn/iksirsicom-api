@@ -1,5 +1,5 @@
 import { Router } from "express";
-import ViewController from "../controllers/ViewController";
+import ViewController from "../controllers/view.controller";
 
 class ViewRoutes {
   router: Router = Router();

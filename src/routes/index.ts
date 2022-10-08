@@ -1,8 +1,8 @@
 import { Application } from "express";
-import LikeRoutes from "./LikeRoutes";
-import PostRoutes from "./PostRoutes";
-import ViewRoutes from "./ViewRoutes";
-import SubscriptionRoutes from "./SubscriptionRoutes";
+import LikeRoutes from "./like.routes";
+import PostRoutes from "./post.routes";
+import ViewRoutes from "./view.routes";
+import SubscriptionRoutes from "./subscription.routes";
 export default class Routes {
   constructor(public app: Application) {
     this.intializeRoutes();

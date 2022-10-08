@@ -1,7 +1,7 @@
 import { Schema, model } from "mongoose";
 import IView from "../types/IView";
 import { getIpAddress } from "../utils/ip-address.util";
-import PostModel from "./PostModel";
+import PostModel from "./post.model";
 
 class ViewModel {
   public viewSchema = new Schema<IView>({

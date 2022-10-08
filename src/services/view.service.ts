@@ -1,5 +1,5 @@
-import ViewModel from "../models/ViewModel";
-import BaseService from "./BaseService";
+import ViewModel from "../models/view.model";
+import BaseService from "./base.service";
 
 class ViewService extends BaseService {
   constructor() {

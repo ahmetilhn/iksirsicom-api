@@ -1,5 +1,5 @@
-import LikeModel from "../models/LikeModel";
-import BaseService from "./BaseService";
+import LikeModel from "../models/like.model";
+import BaseService from "./base.service";
 
 class LikeService extends BaseService {
   constructor() {

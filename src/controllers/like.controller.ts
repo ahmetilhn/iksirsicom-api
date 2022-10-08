@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
-import ErrorHandler from "../handlers/ErrorHandler";
-import LikeService from "../services/LikeService";
+import ErrorHandler from "../handlers/error.handler";
+import LikeService from "../services/like.service";
 
 class LikeController {
   constructor() {}

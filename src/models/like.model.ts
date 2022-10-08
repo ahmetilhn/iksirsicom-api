@@ -1,7 +1,7 @@
 import { Schema, model } from "mongoose";
 import ILike from "../types/ILike";
 import { getIpAddress } from "../utils/ip-address.util";
-import PostModel from "./PostModel";
+import PostModel from "./post.model";
 
 class LikeModel {
   public likeSchema = new Schema<ILike>({

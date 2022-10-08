@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
-import ErrorHandler from "../handlers/ErrorHandler";
-import PostService from "../services/PostService";
+import ErrorHandler from "../handlers/error.handler";
+import PostService from "../services/post.service";
 
 class PostController {
   constructor() {}
