@@ -20,7 +20,7 @@ class Server {
     this.initServer();
   }
   initDatabase() {
-    mongoose.connect(envConfig.DATABASE_SECRET_KEY).catch((err) => {
+    mongoose.connect(envConfig.DATABASE_LINK).catch((err) => {
       console.log(err);
     });
   }
