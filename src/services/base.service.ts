@@ -2,16 +2,32 @@ import { NextFunction, Request, Response } from "express";
 export default class BaseService {
   constructor(public Model) {}
 
-  public async create(req: Request, res: Response, next: NextFunction) {
+  public async create(
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ): Promise<unknown> {
     return this.Model.create(req.body);
   }
-  public async read(req: Request, res: Response, next: NextFunction) {
+  public async read(
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ): Promise<unknown> {
     return this.Model.read(req);
   }
-  public async update(req: Request, res: Response, next: NextFunction) {
+  public async update(
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ): Promise<unknown> {
     return this.Model.update(req.params.id, req.body);
   }
-  public async delete(req: Request, res: Response, next: NextFunction) {
+  public async delete(
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ): Promise<unknown> {
     return this.Model.delete(req.params.id);
   }
 }

@@ -18,6 +18,7 @@ class PostModel {
       poster: {
         type: String,
         required: false,
+        default: "",
       },
       content: [
         {
@@ -32,6 +33,7 @@ class PostModel {
       medium_link: {
         type: String,
         required: false,
+        default: "",
       },
       tags: [
         {
