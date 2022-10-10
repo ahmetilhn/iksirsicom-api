@@ -49,6 +49,9 @@ class PostModel {
         full_name: String,
         user_name: String,
         avatar: String,
+        medium_url: String,
+        github_url: String,
+        linkedin_url: String,
       },
     },
   });
