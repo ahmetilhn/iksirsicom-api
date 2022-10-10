@@ -1,4 +1,4 @@
-import { Document } from "mongoose";
+
 export default interface IAuthor {
   full_name: string;
   user_name: string;
