@@ -7,6 +7,7 @@ class UserRoutes {
   }
   intializeRoutes() {
     this.router.route("/").post(UserController.createUser);
+    this.router.route("/").get(UserController.getUsers);
   }
 }
 
