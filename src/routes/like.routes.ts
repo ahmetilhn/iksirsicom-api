@@ -4,9 +4,9 @@ import LikeController from "../controllers/like.controller";
 class LikeRoutes {
   router: Router = Router();
   constructor() {
-    this.intializeRoutes();
+    this.initRoutes();
   }
-  intializeRoutes() {
+  initRoutes() {
     this.router.route("/").post(LikeController.createLike);
   }
 }

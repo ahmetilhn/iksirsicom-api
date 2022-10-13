@@ -4,9 +4,9 @@ import PostController from "../controllers/post.controller";
 class PostRoutes {
   router: Router = Router();
   constructor() {
-    this.intializeRoutes();
+    this.initRoutes();
   }
-  intializeRoutes() {
+  initRoutes() {
     this.router.route("/").get(PostController.getPosts);
     this.router.route("/:id").get(PostController.getPostById);
     this.router.route("/").post(PostController.createPost);

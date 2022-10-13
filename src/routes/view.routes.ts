@@ -4,9 +4,9 @@ import ViewController from "../controllers/view.controller";
 class ViewRoutes {
   router: Router = Router();
   constructor() {
-    this.intializeRoutes();
+    this.initRoutes();
   }
-  intializeRoutes() {
+  initRoutes() {
     this.router.route("/").post(ViewController.createView);
   }
 }

@@ -6,9 +6,9 @@ import SubscriptionRoutes from "./subscription.routes";
 import UserRoutes from "./user.routes";
 export default class Routes {
   constructor(public app: Application) {
-    this.intializeRoutes();
+    this.initRoutes();
   }
-  intializeRoutes() {
+  initRoutes() {
     this.app.use("/posts", PostRoutes);
     this.app.use("/likes", LikeRoutes);
     this.app.use("/views", ViewRoutes);

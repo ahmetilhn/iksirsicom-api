@@ -4,9 +4,9 @@ import SubscriptionController from "../controllers/subscription.controller";
 class SubscriptionRoutes {
   router: Router = Router();
   constructor() {
-    this.intializeRoutes();
+    this.initRoutes();
   }
-  intializeRoutes() {
+  initRoutes() {
     this.router.route("/").post(SubscriptionController.createSubscription);
   }
 }
