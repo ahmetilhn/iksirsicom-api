@@ -1,4 +1,4 @@
-export default interface IError{
-    msg: string | string[];
-    statusCode: number;
+export default interface IError {
+  msg?: any;
+  statusCode?: number;
 }
