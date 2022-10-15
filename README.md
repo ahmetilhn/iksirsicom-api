@@ -30,27 +30,27 @@ _All ends go through the same control and the same service. (Base controller and
   fetch("https://iksirsi-api.onrender.com/posts", {
     method: "POST",
     body: JSON.stringify({
-      title: string,
+      title: String,
       poster: URL,
       content: [
         {
           type: "code",
-          text: string,
+          text: String,
         },
         {
           type: "p",
-          text: string,
+          text: String,
         },
         {
           type: "img",
-          img_source: URL,
+          img_source: String,
         },
       ],
       medium_link: "",
-      tags: [],
+      tags: [String],
       info: {
         author: {
-          user_name: string,
+          user_name: String,
         },
       },
     }),
@@ -69,27 +69,27 @@ _All ends go through the same control and the same service. (Base controller and
   fetch("https://iksirsi-api.onrender.com/posts", {
     method: "PUT",
     body: JSON.stringify({
-      title: string,
+      title: String,
       poster: URL,
       content: [
         {
           type: "code",
-          text: string,
+          text: String,
         },
         {
           type: "p",
-          text: string,
+          text: String,
         },
         {
           type: "img",
-          img_source: URL,
+          img_source: String,
         },
       ],
       medium_link: "",
-      tags: [],
+      tags: [String],
       info: {
         author: {
-          user_name: string,
+          user_name: String,
         },
       },
     }),
