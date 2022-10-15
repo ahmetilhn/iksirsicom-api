@@ -16,9 +16,9 @@ class ViewModel {
     },
   });
   public Model = model<IView>("View", this.viewSchema);
-  public async read(postId?: string) {
-    if (postId) {
-      return this.Model.find({ post_id: postId }).lean();
+  public async read(req: Request) {
+    if (req.params.id) {
+      return this.Model.find({ post_id: req.params.id }).lean();
     }
     return this.Model.find().lean();
   }
@@ -34,8 +34,10 @@ class ViewModel {
       }
     }
   }
-  public async delete(id: string) {
-    return this.Model.findByIdAndDelete(id);
+  public async delete(req: Request) {
+    if (req.params.id) {
+      return this.Model.findByIdAndDelete(req.params.id);
+    }
   }
 }
 
