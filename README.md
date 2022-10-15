@@ -24,7 +24,7 @@ _All ends go through the same control and the same service. (Base controller and
     method: "GET",
   });
   ```
-- **Post**
+- **Post** Create Post
   <br>
   ```js
   fetch("https://iksirsi-api.onrender.com/posts", {
@@ -63,7 +63,7 @@ _All ends go through the same control and the same service. (Base controller and
     method: "DELETE",
   });
   ```
-- **Put**
+- **Put** Update Post
   <br>
   ```js
   fetch("https://iksirsi-api.onrender.com/posts", {
@@ -200,6 +200,42 @@ _All ends go through the same control and the same service. (Base controller and
   <br>
   ```js
   fetch("https://iksirsi-api.onrender.com/likes/post_id", {
+    method: "DELETE",
+  });
+  ```
+
+##### Views
+
+- **Get** All Views
+  <br>
+
+```js
+fetch("https://iksirsi-api.onrender.com/views", {
+  method: "GET",
+});
+```
+
+- **Get** Views of Post
+  <br>
+  ```js
+  fetch("https://iksirsi-api.onrender.com/views/post_id", {
+    method: "GET",
+  });
+  ```
+- **Post** Create View
+  <br>
+  ```js
+  fetch("https://iksirsi-api.onrender.com/views", {
+    method: "DELETE",
+    body: JSON.stringify({
+      post_id: String,
+    }),
+  });
+  ```
+- **Delete** Delete View
+  <br>
+  ```js
+  fetch("https://iksirsi-api.onrender.com/views/post_id", {
     method: "DELETE",
   });
   ```
