@@ -7,9 +7,6 @@ import envConfig from "./config/env.config";
 import Routes from "./routes";
 import mongoose from "mongoose";
 const app: Application = express();
-
-// Listen port
-
 class Server {
   constructor() {
     this.initServer();
@@ -30,6 +27,9 @@ class Server {
     this.initDatabase();
     this.initConfig();
     this.initRouter();
+    this.listen();
+  }
+  listen() {
     app.listen(envConfig.API_PORT, () => {
       console.log(envConfig.API_PORT + serverConstant.MSG);
     });
