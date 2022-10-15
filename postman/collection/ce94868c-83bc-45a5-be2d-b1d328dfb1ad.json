@@ -1,1 +1,96 @@
-{"info":{"_postman_id":"ce94868c-83bc-45a5-be2d-b1d328dfb1ad","name":"views","schema":"https://schema.getpostman.com/json/collection/v2.1.0/collection.json"},"item":[{"name":"get views","id":"cd4a7c9e-2a35-49a7-9313-ff6c5f45529a","protocolProfileBehavior":{"disableBodyPruning":true},"request":{"method":"GET","header":[],"body":{"mode":"raw","raw":"","options":{"raw":{"language":"json"}}},"url":{"raw":"http://localhost:8000/views","protocol":"http","host":["localhost"],"port":"8000","path":["views"]}},"response":[]},{"name":"create view","id":"547f492d-f268-454d-abd6-b9bc77d476f0","protocolProfileBehavior":{"disableBodyPruning":true},"request":{"method":"POST","header":[],"body":{"mode":"raw","raw":"{\n        \"post_id\": \"63442fc9d113aac4b2cb5bc4\"\n}","options":{"raw":{"language":"json"}}},"url":{"raw":"http://localhost:8000/views","protocol":"http","host":["localhost"],"port":"8000","path":["views"]}},"response":[]},{"name":"delete view","id":"c94bfc0e-b400-4af2-865b-240b58525d73","protocolProfileBehavior":{"disableBodyPruning":true},"request":{"method":"DELETE","header":[],"url":{"raw":"http://localhost:8000/views","protocol":"http","host":["localhost"],"port":"8000","path":["views"]}},"response":[]}]}
+{
+    "info": {
+        "_postman_id": "ce94868c-83bc-45a5-be2d-b1d328dfb1ad",
+        "name": "views",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "get views",
+            "id": "cd4a7c9e-2a35-49a7-9313-ff6c5f45529a",
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "http://localhost:8000/views",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "views"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "create view",
+            "id": "547f492d-f268-454d-abd6-b9bc77d476f0",
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n        \"post_id\": \"63442fc9d113aac4b2cb5bc4\"\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "http://localhost:8000/views",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "views"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "delete view",
+            "id": "c94bfc0e-b400-4af2-865b-240b58525d73",
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:8000/views",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "views"
+                    ]
+                }
+            },
+            "response": []
+        }
+    ]
+}

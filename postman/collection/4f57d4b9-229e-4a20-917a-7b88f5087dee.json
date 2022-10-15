@@ -1,1 +1,138 @@
-{"info":{"_postman_id":"4f57d4b9-229e-4a20-917a-7b88f5087dee","name":"likes","schema":"https://schema.getpostman.com/json/collection/v2.1.0/collection.json"},"item":[{"name":"create like","id":"653349f2-32c9-4c73-a1e6-fcfe5778cf7d","protocolProfileBehavior":{"disableBodyPruning":true},"request":{"method":"POST","header":[{"key":"Authorization","value":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFobWV0aWxoYW4uZGV2QGdtYWlsLmNvbSIsInVzZXJfbmFtZSI6ImFobWV0LmlsaGFuIiwiZnVsbF9uYW1lIjoiYWhtZXQgaWxoYW4iLCJfaWQiOiI2MjBmNTFlYzJhNzQ2ZmVhNTE5OTMwMzIiLCJpYXQiOjE2NDUyODE5NjksImV4cCI6MTY4MTI4MTk2OX0.vX4mxpA8ftE31raRX0yQOiNVWGuutBMTKEVp7gXyGhM","type":"text"},{"key":"","value":"","type":"text"}],"body":{"mode":"raw","raw":"{\r\n    \"post_id\": \"62deeb04fc24010b9ca257ed\"\r\n}","options":{"raw":{"language":"json"}}},"url":{"raw":"http://localhost:8000/likes","protocol":"http","host":["localhost"],"port":"8000","path":["likes"]}},"response":[]},{"name":"delete like","id":"f80a0bd4-bcb1-4761-952d-8eff6e7255c3","protocolProfileBehavior":{"disableBodyPruning":true},"request":{"method":"DELETE","header":[{"key":"Authorization","value":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFobWV0aWxoYW4uZGV2QGdtYWlsLmNvbSIsInVzZXJfbmFtZSI6ImFobWV0LmlsaGFuIiwiZnVsbF9uYW1lIjoiYWhtZXQgaWxoYW4iLCJfaWQiOiI2MjBmNTFlYzJhNzQ2ZmVhNTE5OTMwMzIiLCJpYXQiOjE2NDUyODE5NjksImV4cCI6MTY4MTI4MTk2OX0.vX4mxpA8ftE31raRX0yQOiNVWGuutBMTKEVp7gXyGhM","type":"text"},{"key":"","value":"","type":"text"}],"body":{"mode":"raw","raw":"{\r\n    \"post_id\": \"62117f0dfe4963865ea13d2e\"\r\n}","options":{"raw":{"language":"json"}}},"url":{"raw":"http://localhost:8000/likes","protocol":"http","host":["localhost"],"port":"8000","path":["likes"]}},"response":[]},{"name":"get likes","id":"283941d1-9b30-41b6-9395-1db8f999d271","protocolProfileBehavior":{"disableBodyPruning":true},"request":{"method":"GET","header":[{"key":"Authorization","value":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFobWV0aWxoYW4uZGV2QGdtYWlsLmNvbSIsInVzZXJfbmFtZSI6ImFobWV0LmlsaGFuIiwiZnVsbF9uYW1lIjoiYWhtZXQgaWxoYW4iLCJfaWQiOiI2MjBmNTFlYzJhNzQ2ZmVhNTE5OTMwMzIiLCJpYXQiOjE2NDUyODE5NjksImV4cCI6MTY4MTI4MTk2OX0.vX4mxpA8ftE31raRX0yQOiNVWGuutBMTKEVp7gXyGhM","type":"text"},{"key":"","value":"","type":"text"}],"body":{"mode":"raw","raw":"{\r\n    \"post_id\": \"62117f0dfe4963865ea13d2e\"\r\n}","options":{"raw":{"language":"json"}}},"url":{"raw":"http://localhost:8000/likes","protocol":"http","host":["localhost"],"port":"8000","path":["likes"]}},"response":[]}]}
+{
+    "info": {
+        "_postman_id": "4f57d4b9-229e-4a20-917a-7b88f5087dee",
+        "name": "likes",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "create like",
+            "id": "653349f2-32c9-4c73-a1e6-fcfe5778cf7d",
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFobWV0aWxoYW4uZGV2QGdtYWlsLmNvbSIsInVzZXJfbmFtZSI6ImFobWV0LmlsaGFuIiwiZnVsbF9uYW1lIjoiYWhtZXQgaWxoYW4iLCJfaWQiOiI2MjBmNTFlYzJhNzQ2ZmVhNTE5OTMwMzIiLCJpYXQiOjE2NDUyODE5NjksImV4cCI6MTY4MTI4MTk2OX0.vX4mxpA8ftE31raRX0yQOiNVWGuutBMTKEVp7gXyGhM",
+                        "type": "text"
+                    },
+                    {
+                        "key": "",
+                        "value": "",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\r\n    \"post_id\": \"62deeb04fc24010b9ca257ed\"\r\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "http://localhost:8000/likes",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "likes"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "delete like",
+            "id": "f80a0bd4-bcb1-4761-952d-8eff6e7255c3",
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "request": {
+                "method": "DELETE",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFobWV0aWxoYW4uZGV2QGdtYWlsLmNvbSIsInVzZXJfbmFtZSI6ImFobWV0LmlsaGFuIiwiZnVsbF9uYW1lIjoiYWhtZXQgaWxoYW4iLCJfaWQiOiI2MjBmNTFlYzJhNzQ2ZmVhNTE5OTMwMzIiLCJpYXQiOjE2NDUyODE5NjksImV4cCI6MTY4MTI4MTk2OX0.vX4mxpA8ftE31raRX0yQOiNVWGuutBMTKEVp7gXyGhM",
+                        "type": "text"
+                    },
+                    {
+                        "key": "",
+                        "value": "",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\r\n    \"post_id\": \"62117f0dfe4963865ea13d2e\"\r\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "http://localhost:8000/likes",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "likes"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "get likes",
+            "id": "283941d1-9b30-41b6-9395-1db8f999d271",
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFobWV0aWxoYW4uZGV2QGdtYWlsLmNvbSIsInVzZXJfbmFtZSI6ImFobWV0LmlsaGFuIiwiZnVsbF9uYW1lIjoiYWhtZXQgaWxoYW4iLCJfaWQiOiI2MjBmNTFlYzJhNzQ2ZmVhNTE5OTMwMzIiLCJpYXQiOjE2NDUyODE5NjksImV4cCI6MTY4MTI4MTk2OX0.vX4mxpA8ftE31raRX0yQOiNVWGuutBMTKEVp7gXyGhM",
+                        "type": "text"
+                    },
+                    {
+                        "key": "",
+                        "value": "",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\r\n    \"post_id\": \"62117f0dfe4963865ea13d2e\"\r\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "http://localhost:8000/likes",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "likes"
+                    ]
+                }
+            },
+            "response": []
+        }
+    ]
+}

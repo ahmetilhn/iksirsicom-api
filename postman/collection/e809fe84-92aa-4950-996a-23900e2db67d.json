@@ -6,7 +6,7 @@
     },
     "item": [
         {
-            "name": "get posts",
+            "name": "get subscriptions",
             "id": "62ff44a8-7034-4f9f-9c3f-00389bf152a1",
             "protocolProfileBehavior": {
                 "disableBodyPruning": true
