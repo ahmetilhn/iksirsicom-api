@@ -209,11 +209,11 @@ _All ends go through the same control and the same service. (Base controller and
 - **Get** All Views
   <br>
 
-```js
-fetch("https://iksirsi-api.onrender.com/views", {
-  method: "GET",
-});
-```
+  ```js
+  fetch("https://iksirsi-api.onrender.com/views", {
+    method: "GET",
+  });
+  ```
 
 - **Get** Views of Post
   <br>
