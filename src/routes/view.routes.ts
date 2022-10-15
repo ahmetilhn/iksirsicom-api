@@ -8,6 +8,9 @@ class ViewRoutes {
   }
   initRoutes() {
     this.router.route("/").post(ViewController.get);
+    this.router.route("/").get(ViewController.get);
+    this.router.route("/").put(ViewController.get);
+    this.router.route("/").delete(ViewController.get);
   }
 }
 

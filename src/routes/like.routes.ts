@@ -9,6 +9,9 @@ class LikeRoutes {
   initRoutes() {
     this.router.route("/").post(LikeController.post);
     this.router.route("/").get(LikeController.get);
+    this.router.route("/:id").get(LikeController.get);
+    this.router.route("/:id").delete(LikeController.get);
+    this.router.route("/").put(LikeController.get);
   }
 }
 
