@@ -116,9 +116,9 @@ class PostModel {
     }
     return this.Model.find().lean(true);
   }
-  public async update(req: Request, args: unknown): Promise<IPost> {
+  public async update(req: Request): Promise<IPost> {
     if (req.params.id && req.body) {
-      return this.Model.findByIdAndUpdate(req.params.id, args, {
+      return this.Model.findByIdAndUpdate(req.params.id, req.body, {
         new: true,
       });
     }

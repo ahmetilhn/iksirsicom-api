@@ -33,14 +33,13 @@ class LikeModel {
         ip_address: getIpAddress(),
       }).save();
       if (like) {
-        await PostModel.update(req, { $inc: { "info.like": 1 } });
+        await PostModel.Model.findByIdAndUpdate(
+          req.params.id,
+          { $inc: { "info.like": 1 } },
+          { new: true }
+        );
         return like;
       }
-    }
-  }
-  public async delete(req: Request): Promise<unknown> {
-    if (req.params.id) {
-      return this.Model.findByIdAndDelete(req.params.id);
     }
   }
 }
