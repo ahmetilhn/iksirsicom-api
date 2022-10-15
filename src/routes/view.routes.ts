@@ -7,7 +7,7 @@ class ViewRoutes {
     this.initRoutes();
   }
   initRoutes() {
-    this.router.route("/").post(ViewController.createView);
+    this.router.route("/").post(ViewController.get);
   }
 }
 

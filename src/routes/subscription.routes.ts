@@ -7,7 +7,7 @@ class SubscriptionRoutes {
     this.initRoutes();
   }
   initRoutes() {
-    this.router.route("/").post(SubscriptionController.createSubscription);
+    this.router.route("/").post(SubscriptionController.post);
   }
 }
 

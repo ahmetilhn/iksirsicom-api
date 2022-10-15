@@ -7,7 +7,8 @@ class LikeRoutes {
     this.initRoutes();
   }
   initRoutes() {
-    this.router.route("/").post(LikeController.createLike);
+    this.router.route("/").post(LikeController.post);
+    this.router.route("/").get(LikeController.get);
   }
 }
 

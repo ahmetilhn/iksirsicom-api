@@ -7,10 +7,11 @@ class PostRoutes {
     this.initRoutes();
   }
   initRoutes() {
-    this.router.route("/").get(PostController.getPosts);
-    this.router.route("/:id").get(PostController.getPostById);
-    this.router.route("/").post(PostController.createPost);
-    this.router.route("/:id").delete(PostController.deletePost);
+    this.router.route("/").get(PostController.get);
+    this.router.route("/:id").get(PostController.get);
+    this.router.route("/").post(PostController.post);
+    this.router.route("/").put(PostController.post);
+    this.router.route("/:id").delete(PostController.delete);
   }
 }
 

@@ -37,7 +37,7 @@ class BaseController {
     try {
       const response = await this.service.create(req);
       if (response) {
-        res.status(201);
+        res.status(201).json(response);
       }
     } catch (err: unknown) {
       ErrorHandler.handler(
@@ -75,7 +75,9 @@ class BaseController {
     try {
       const response = await this.service.delete(req);
       if (response) {
-        res.status(200);
+        res.status(200).json({
+          msg: "Deleted",
+        });
       }
     } catch (err: unknown) {
       ErrorHandler.handler(

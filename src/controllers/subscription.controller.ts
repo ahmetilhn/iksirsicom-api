@@ -1,27 +1,9 @@
-import { NextFunction, Request, Response } from "express";
-import ErrorHandler from "../handlers/error.handler";
 import SubscriptionService from "../services/subscription.service";
+import BaseController from "./base.controller";
 
-class SubscriptionController {
-  constructor() {}
-  public async createSubscription(
-    req: Request,
-    res: Response,
-    next: NextFunction
-  ) {
-    const newSubscription = await SubscriptionService.create(req, res, next);
-    if (newSubscription) {
-      res.status(201).json({
-        msg: "Üyelik oluşturuldu",
-      });
-    }
-    ErrorHandler.handler(
-      {
-        msg: "Üyelik oluştulamadı",
-        statusCode: 500,
-      },
-      res
-    );
+class SubscriptionController extends BaseController {
+  constructor() {
+    super(SubscriptionService);
   }
 }
 

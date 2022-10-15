@@ -1,23 +1,9 @@
-import { NextFunction, Request, Response } from "express";
-import ErrorHandler from "../handlers/error.handler";
 import LikeService from "../services/like.service";
+import BaseController from "./base.controller";
 
-class LikeController {
-  constructor() {}
-  public async createLike(req: Request, res: Response, next: NextFunction) {
-    const newLike = await LikeService.create(req, res, next);
-    if (newLike) {
-      res.status(201).json({
-        msg: "Beğeni oluşturuldu",
-      });
-    }
-    ErrorHandler.handler(
-      {
-        msg: "Beğeni oluştulamadı",
-        statusCode: 500,
-      },
-      res
-    );
+class LikeController extends BaseController {
+  constructor() {
+    super(LikeService);
   }
 }
 

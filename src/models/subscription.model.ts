@@ -1,16 +1,25 @@
+import { Request } from "express";
 import { Schema, model } from "mongoose";
 import ISubscription from "../types/ISubscription";
 
 class SubscriptionModel {
-  public subscriptionSchema = new Schema<ISubscription>({
-    email: {
-      type: String,
-      required: true,
+  public subscriptionSchema = new Schema<ISubscription>(
+    {
+      email: {
+        type: String,
+        required: true,
+      },
     },
-  });
+    {
+      timestamps: true,
+    }
+  );
   public Model = model<ISubscription>("Subscription", this.subscriptionSchema);
-  public async create(payload: ISubscription) {
-    return new this.Model(payload).save();
+  public async create(req: Request) {
+    const payload: ISubscription = req.body;
+    if (payload) {
+      return new this.Model(payload).save();
+    }
   }
 }
 

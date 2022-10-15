@@ -93,16 +93,19 @@ class PostModel {
     }
   );
   public Model = model<IPost>("Post", this.postSchema);
-  public async create(payload: IPost) {
-    payload.reading_time = getReadingTime(payload.content);
-    const userInfo: IUser = await UserModel.read<IUser>(
-      undefined,
-      payload.info.author.user_name
-    );
-    payload.info.author = {
-      ...userInfo,
-    };
-    return new this.Model(payload).save();
+  public async create(req: Request) {
+    const payload: IPost = req.body;
+    if (payload) {
+      payload.reading_time = getReadingTime(payload.content);
+      const userInfo: IUser = await UserModel.read<IUser>(
+        undefined,
+        payload.info.author.user_name
+      );
+      payload.info.author = {
+        ...userInfo,
+      };
+      return new this.Model(payload).save();
+    }
   }
   // Remove req add only id
   public async read(req: Request) {
@@ -113,11 +116,17 @@ class PostModel {
     }
     return this.Model.find().lean(true);
   }
-  public async update(id: string, payload) {
-    return this.Model.findByIdAndUpdate(id, payload, { new: true });
+  public async update(req: Request, args: unknown) {
+    if (req.params.id && req.body) {
+      return this.Model.findByIdAndUpdate(req.params.id, args, {
+        new: true,
+      });
+    }
   }
-  public async delete(id: string) {
-    return this.Model.findByIdAndDelete(id);
+  public async delete(req: Request) {
+    if (req.params.id) {
+      return this.Model.findByIdAndDelete(req.params.id);
+    }
   }
 }
 export default new PostModel();

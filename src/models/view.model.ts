@@ -1,3 +1,4 @@
+import { Request } from "express";
 import { Schema, model } from "mongoose";
 import IView from "../types/IView";
 import { getIpAddress } from "../utils/ip-address.util";
@@ -21,13 +22,16 @@ class ViewModel {
     }
     return this.Model.find().lean();
   }
-  public async create(payload: IView) {
-    const view = new this.Model({
-      ...payload,
-      ip_address: getIpAddress(),
-    }).save();
-    if (view) {
-      return PostModel.update(payload.post_id, { $inc: { "info.view": 1 } });
+  public async create(req: Request) {
+    const payload: IView = req.body;
+    if (payload) {
+      const view = new this.Model({
+        ...payload,
+        ip_address: getIpAddress(),
+      }).save();
+      if (view) {
+        return PostModel.update(req, { $inc: { "info.view": 1 } });
+      }
     }
   }
   public async delete(id: string) {
