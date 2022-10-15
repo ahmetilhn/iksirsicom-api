@@ -9,10 +9,8 @@ class UserRoutes {
     this.router.route("/").post(UserController.post);
     this.router.route("/").get(UserController.get);
     this.router.route("/:username").get(UserController.get);
-    this.router.route("/:id").get(UserController.get);
-    this.router.route("/").put(UserController.get);
-    this.router.route("/:id").delete(UserController.get);
-    this.router.route("/:username").delete(UserController.get);
+    this.router.route("/").put(UserController.put);
+    this.router.route("/:username").delete(UserController.delete);
   }
 }
 

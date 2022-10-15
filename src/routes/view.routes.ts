@@ -7,10 +7,10 @@ class ViewRoutes {
     this.initRoutes();
   }
   initRoutes() {
-    this.router.route("/").post(ViewController.get);
+    this.router.route("/").post(ViewController.post);
     this.router.route("/").get(ViewController.get);
-    this.router.route("/").put(ViewController.get);
-    this.router.route("/").delete(ViewController.get);
+    this.router.route("/").put(ViewController.put);
+    this.router.route("/:id").delete(ViewController.delete);
   }
 }
 

@@ -8,10 +8,10 @@ class SubscriptionRoutes {
   }
   initRoutes() {
     this.router.route("/").post(SubscriptionController.post);
-    this.router.route("/").get(SubscriptionController.post);
-    this.router.route("/").put(SubscriptionController.post);
-    this.router.route("/:id").delete(SubscriptionController.post);
-    this.router.route("/:id").get(SubscriptionController.post);
+    this.router.route("/").get(SubscriptionController.get);
+    this.router.route("/:id").get(SubscriptionController.get);
+    this.router.route("/").put(SubscriptionController.put);
+    this.router.route("/:id").delete(SubscriptionController.delete);
   }
 }
 
