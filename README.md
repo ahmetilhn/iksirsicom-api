@@ -6,9 +6,9 @@ _This api is the open source API of the iksirsi.com website_
 
 _Base URL_: `https://iksirsi-api.onrender.com/`
 
-##### Posts
-
 _All ends go through the same control and the same service. (Base controller and base service)_
+
+##### Posts
 
 - **Get** All Posts
   <br>
@@ -63,7 +63,7 @@ _All ends go through the same control and the same service. (Base controller and
     method: "DELETE",
   });
   ```
-- **Update**
+- **Put**
   <br>
   ```js
   fetch("https://iksirsi-api.onrender.com/posts", {
@@ -93,5 +93,113 @@ _All ends go through the same control and the same service. (Base controller and
         },
       },
     }),
+  });
+  ```
+
+##### Users
+
+- **Get** All Users
+  <br>
+  ```js
+  fetch("https://iksirsi-api.onrender.com/users", {
+    method: "GET",
+  });
+  ```
+- **Get** One User
+  <br>
+  ```js
+  fetch("https://iksirsi-api.onrender.com/users/email || id", {
+    method: "GET",
+  });
+  ```
+- **Post** Create User
+  <br>
+  ```js
+  fetch("https://iksirsi-api.onrender.com/users", {
+    method: "POST",
+    body: JSON.stringify({
+      email: String,
+      full_name: String,
+      user_name: String,
+      avatar: String,
+      medium_url: String,
+      github_url: String,
+      linkedin_url: String,
+    }),
+  });
+  ```
+- **Delete** Delete User
+  <br>
+  ```js
+  fetch("https://iksirsi-api.onrender.com/users", {
+    method: "DELETE",
+  });
+  ```
+- **Put** Update User
+  <br>
+  ```js
+  fetch("https://iksirsi-api.onrender.com/users", {
+    method: "PUT",
+    body: JSON.stringify({
+      email: String,
+      full_name: String,
+      user_name: String,
+      avatar: String,
+      medium_url: String,
+      github_url: String,
+      linkedin_url: String,
+    }),
+  });
+  ```
+
+##### Likes
+
+- **Get** All Likes
+  <br>
+  ```js
+  fetch("https://iksirsi-api.onrender.com/likes", {
+    method: "GET",
+  });
+  ```
+- **Get** Likes of Post
+  <br>
+
+  ```js
+  fetch("https://iksirsi-api.onrender.com/likes/post_id", {
+    method: "GET",
+  });
+  ```
+
+  ##### Likes
+
+- **Get** All Likes
+  <br>
+  ```js
+  fetch("https://iksirsi-api.onrender.com/likes", {
+    method: "GET",
+  });
+  ```
+- **Get** Likes of Post
+  <br>
+  ```js
+  fetch("https://iksirsi-api.onrender.com/likes/post_id", {
+    method: "GET",
+  });
+  ```
+- **Post** Create Like
+  <br>
+  ```js
+  fetch("https://iksirsi-api.onrender.com/likes", {
+    method: "DELETE",
+    body: JSON.stringify({
+      post_id: String,
+    }),
+  });
+  ```
+- **Delete** Delete Like
+  <br>
+  ```js
+  fetch("https://iksirsi-api.onrender.com/likes/post_id", {
+    method: "DELETE",
   });
   ```
