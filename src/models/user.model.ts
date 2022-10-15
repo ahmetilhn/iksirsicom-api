@@ -42,7 +42,7 @@ class UserModel {
     }
   );
   public Model = model<IUser>("User", this.userSchema);
-  public async create(req: Request) {
+  public async create(req: Request): Promise<IUser> {
     const payload: IUser = req.body;
     if (payload) {
       return new this.Model(payload).save();

@@ -15,7 +15,7 @@ class SubscriptionModel {
     }
   );
   public Model = model<ISubscription>("Subscription", this.subscriptionSchema);
-  public async create(req: Request) {
+  public async create(req: Request): Promise<ISubscription> {
     const payload: ISubscription = req.body;
     if (payload) {
       return new this.Model(payload).save();

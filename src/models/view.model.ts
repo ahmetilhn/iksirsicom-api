@@ -16,13 +16,13 @@ class ViewModel {
     },
   });
   public Model = model<IView>("View", this.viewSchema);
-  public async read(req: Request) {
+  public async read(req: Request): Promise<IView | IView[]> {
     if (req.params.id) {
       return this.Model.find({ post_id: req.params.id }).lean();
     }
     return this.Model.find().lean();
   }
-  public async create(req: Request) {
+  public async create(req: Request): Promise<IView> {
     const payload: IView = req.body;
     if (payload) {
       const view = new this.Model({
@@ -30,11 +30,12 @@ class ViewModel {
         ip_address: getIpAddress(),
       }).save();
       if (view) {
-        return PostModel.update(req, { $inc: { "info.view": 1 } });
+        await PostModel.update(req, { $inc: { "info.view": 1 } });
+        return view;
       }
     }
   }
-  public async delete(req: Request) {
+  public async delete(req: Request): Promise<unknown> {
     if (req.params.id) {
       return this.Model.findByIdAndDelete(req.params.id);
     }

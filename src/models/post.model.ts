@@ -93,7 +93,7 @@ class PostModel {
     }
   );
   public Model = model<IPost>("Post", this.postSchema);
-  public async create(req: Request) {
+  public async create(req: Request): Promise<IPost> {
     const payload: IPost = req.body;
     if (payload) {
       payload.reading_time = getReadingTime(payload.content);
@@ -108,7 +108,7 @@ class PostModel {
     }
   }
   // Remove req add only id
-  public async read(req: Request) {
+  public async read(req: Request): Promise<IPost | IPost[]> {
     if (req.params.id) {
       return this.Model.findById(req.params.id).lean(true);
     } else if (req.query.limit) {
@@ -116,14 +116,14 @@ class PostModel {
     }
     return this.Model.find().lean(true);
   }
-  public async update(req: Request, args: unknown) {
+  public async update(req: Request, args: unknown): Promise<IPost> {
     if (req.params.id && req.body) {
       return this.Model.findByIdAndUpdate(req.params.id, args, {
         new: true,
       });
     }
   }
-  public async delete(req: Request) {
+  public async delete(req: Request): Promise<unknown> {
     if (req.params.id) {
       return this.Model.findByIdAndDelete(req.params.id);
     }

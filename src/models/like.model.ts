@@ -19,13 +19,13 @@ class LikeModel {
     { timestamps: true }
   );
   public Model = model<ILike>("Like", this.likeSchema);
-  public async read(req: Request) {
+  public async read(req: Request): Promise<ILike | ILike[]> {
     if (req.params.id) {
       return this.Model.find({ post_id: req.params.id }).lean();
     }
     return this.Model.find().lean();
   }
-  public async create(req: Request) {
+  public async create(req: Request): Promise<ILike> {
     const payload: ILike = req.body;
     if (payload) {
       const like = new this.Model({
@@ -33,11 +33,12 @@ class LikeModel {
         ip_address: getIpAddress(),
       }).save();
       if (like) {
-        return PostModel.update(req, { $inc: { "info.like": 1 } });
+        await PostModel.update(req, { $inc: { "info.like": 1 } });
+        return like;
       }
     }
   }
-  public async delete(req: Request) {
+  public async delete(req: Request): Promise<unknown> {
     if (req.params.id) {
       return this.Model.findByIdAndDelete(req.params.id);
     }
