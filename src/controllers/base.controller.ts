@@ -1,17 +1,22 @@
 import { Response, Request, NextFunction } from "express";
-import BaseService from "../services/base.service";
-import IBaseService from "../types/IBaseService";
 import ErrorHandler from "../handlers/error.handler";
+import IBaseService from "../types/IBaseService";
 class BaseController {
-  constructor(public model: unknown) {}
-  public baseService = new BaseService(this.model);
-  public async read(
+  public service: IBaseService;
+  constructor(service: IBaseService) {
+    this.service = service;
+    this.get = this.get.bind(this);
+    this.put = this.put.bind(this);
+    this.post = this.post.bind(this);
+    this.delete = this.delete.bind(this);
+  }
+  public async get(
     req: Request,
     res: Response,
     next: NextFunction
   ): Promise<void> {
     try {
-      const response = await this.baseService.read(req, res, next);
+      const response = await this.service.read(req);
       if (response) {
         res.status(200).json(response);
       }
@@ -24,17 +29,15 @@ class BaseController {
       );
     }
   }
-  public async create(
+  public async post(
     req: Request,
     res: Response,
     next: NextFunction
   ): Promise<void> {
     try {
-      const response = await this.baseService.create(req, res, next);
+      const response = await this.service.create(req);
       if (response) {
-        res.status(201).json({
-          msg: "Başarılı",
-        });
+        res.status(201);
       }
     } catch (err: unknown) {
       ErrorHandler.handler(
@@ -45,13 +48,13 @@ class BaseController {
       );
     }
   }
-  public async update(
+  public async put(
     req: Request,
     res: Response,
     next: NextFunction
   ): Promise<void> {
     try {
-      const response = await this.baseService.update(req, res, next);
+      const response = await this.service.update(req);
       if (response) {
         res.status(200).json(response);
       }
@@ -70,7 +73,7 @@ class BaseController {
     next: NextFunction
   ): Promise<void> {
     try {
-      const response = await this.baseService.delete(req, res, next);
+      const response = await this.service.delete(req);
       if (response) {
         res.status(200);
       }
