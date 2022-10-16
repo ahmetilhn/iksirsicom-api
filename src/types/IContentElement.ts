@@ -3,5 +3,6 @@ export default interface IContentElement {
   type: string;
   link?: string;
   img_source?: string;
+  lang?: string;
   childrens?: IContentElement[];
 }
