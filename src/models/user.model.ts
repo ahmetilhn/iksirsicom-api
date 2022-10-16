@@ -1,6 +1,7 @@
 import { Schema, model } from "mongoose";
 import IUser from "../types/IUser";
 import { Request } from "express";
+import { randomAvatar } from "../utils/avatar.util";
 class UserModel {
   public userSchema = new Schema<IUser>(
     {
@@ -36,6 +37,10 @@ class UserModel {
         required: false,
         default: "",
       },
+      gender: {
+        type: String,
+        required: true,
+      },
     },
     {
       timestamps: true,
@@ -44,8 +49,14 @@ class UserModel {
   public Model = model<IUser>("User", this.userSchema);
   public async create(req: Request): Promise<IUser> {
     const payload: IUser = req.body;
+    payload.avatar = randomAvatar(payload.gender);
     if (payload) {
-      return new this.Model(payload).save();
+      try {
+        await new this.Model(payload).save();
+        return payload;
+      } catch (error) {
+        throw error;
+      }
     }
   }
   // Remove req add only id
