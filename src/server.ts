@@ -19,7 +19,7 @@ class Server {
   initConfig() {
     app.use(express.json({ limit: "100mb" }));
     app.use(cors(corsConfig));
-    app.use("/public", express.static(process.cwd() + "/dist/public"));
+    app.use("/public", express.static(process.cwd() + "/public"));
   }
   initRouter() {
     new Routes(app);
