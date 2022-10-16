@@ -34,9 +34,12 @@ class LikeModel {
       }).save();
       if (like) {
         PostModel.Model.findByIdAndUpdate(
-          req.params.id,
-          { $inc: { "info.like": 1 } },
-          { new: true }
+          payload.post_id,
+          {
+            $inc: { "info.like": 1 },
+          },
+          { new: true },
+          () => {}
         );
         return like;
       }

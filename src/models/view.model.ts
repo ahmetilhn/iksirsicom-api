@@ -31,9 +31,12 @@ class ViewModel {
       }).save();
       if (view) {
         PostModel.Model.findByIdAndUpdate(
-          req.params.id,
-          { $inc: { "info.view": 1 } },
-          { new: true }
+          payload.post_id,
+          {
+            $inc: { "info.view": 1 },
+          },
+          { new: true },
+          () => {}
         );
         return view;
       }
