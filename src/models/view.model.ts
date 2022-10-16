@@ -25,12 +25,12 @@ class ViewModel {
   public async create(req: Request): Promise<IView> {
     const payload: IView = req.body;
     if (payload) {
-      const view = new this.Model({
+      const view = await new this.Model({
         ...payload,
         ip_address: getIpAddress(),
       }).save();
       if (view) {
-        await PostModel.Model.findByIdAndUpdate(
+        PostModel.Model.findByIdAndUpdate(
           req.params.id,
           { $inc: { "info.view": 1 } },
           { new: true }

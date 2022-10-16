@@ -28,12 +28,12 @@ class LikeModel {
   public async create(req: Request): Promise<ILike> {
     const payload: ILike = req.body;
     if (payload) {
-      const like = new this.Model({
+      const like = await new this.Model({
         ...payload,
         ip_address: getIpAddress(),
       }).save();
       if (like) {
-        await PostModel.Model.findByIdAndUpdate(
+        PostModel.Model.findByIdAndUpdate(
           req.params.id,
           { $inc: { "info.like": 1 } },
           { new: true }
