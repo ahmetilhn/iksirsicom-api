@@ -1,20 +1,15 @@
 import express, { Application, NextFunction, Request, Response } from "express";
 import cors from "cors";
+
 import corsConfig from "./config/cors.config";
 import serverConstant from "./constants/server.constant";
 import envConfig from "./config/env.config";
-
 import Routes from "./routes";
-import mongoose from "mongoose";
+import dbConfig from "./config/db.config";
 const app: Application = express();
 class Server {
   constructor() {
     this.initServer();
-  }
-  initDatabase() {
-    mongoose.connect(envConfig.DATABASE_LINK).catch((err) => {
-      console.log(err);
-    });
   }
   initConfig() {
     app.use(express.json({ limit: "100mb" }));
@@ -29,6 +24,9 @@ class Server {
     this.initConfig();
     this.initRouter();
     this.listen();
+  }
+  initDatabase() {
+    dbConfig();
   }
   listen() {
     app.listen(envConfig.API_PORT, () => {
