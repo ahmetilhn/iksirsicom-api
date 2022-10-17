@@ -6,6 +6,7 @@ import serverConstant from "./constants/server.constant";
 import envConfig from "./config/env.config";
 import Routes from "./routes";
 import dbConfig from "./config/db.config";
+import { authMiddleware } from "./middlewares/auth.middleware";
 const app: Application = express();
 class Server {
   constructor() {
@@ -16,17 +17,23 @@ class Server {
     app.use(cors(corsConfig));
     app.use("/public", express.static(process.cwd() + "/public"));
   }
-  initRouter() {
-    new Routes(app);
-  }
   initServer() {
-    this.initDatabase();
     this.initConfig();
+    this.initDatabase();
+    this.initMiddleware();
     this.initRouter();
     this.listen();
   }
   initDatabase() {
     dbConfig();
+  }
+  initMiddleware() {
+    app.use((req, res, next) => {
+      authMiddleware(req, res, next);
+    });
+  }
+  initRouter() {
+    new Routes(app);
   }
   listen() {
     app.listen(envConfig.API_PORT, () => {

@@ -8,4 +8,5 @@ export default {
   DB_PASSWORD: process.env.DB_PASSWORD,
   DB_CLUSTER: process.env.DB_CLUSTER,
   DB_NAME: process.env.DB_NAME,
+  ADMIN_TOKEN: process.env.ADMIN_TOKEN,
 };
