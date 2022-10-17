@@ -8,7 +8,11 @@ export const authMiddleware = (
   res: Response,
   next: NextFunction
 ) => {
-  if (allowedMethods.includes(req.method)) {
+  if (
+    allowedMethods.includes(req.method) ||
+    req.path.includes("views") ||
+    req.path.includes("likes")
+  ) {
     next();
   } else {
     // Bearer _token_
