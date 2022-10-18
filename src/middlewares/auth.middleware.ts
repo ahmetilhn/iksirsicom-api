@@ -10,8 +10,9 @@ export const authMiddleware = (
 ) => {
   if (
     allowedMethods.includes(req.method) ||
-    req.path.includes("views") ||
-    req.path.includes("likes")
+    (req.path.includes("views") && req.method === "POST") ||
+    (req.path.includes("likes") && req.method === "POST") ||
+    (req.path.includes("subscriptions") && req.method === "POST")
   ) {
     next();
   } else {
